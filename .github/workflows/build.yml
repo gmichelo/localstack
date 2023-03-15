@@ -16,7 +16,7 @@ jobs:
       - name: Build and push with Docker
         run: |
           IMAGE_NAME=docker-localstack
-          IMAGE_ID=localstack ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
+          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
           VERSION=v0.0.1
           
           DOCKER_BUILDKIT=1 docker build . --tag docker-localstack
@@ -37,7 +37,7 @@ jobs:
       - name: Build and push with Namespace Cloud cluster
         run: |
           IMAGE_NAME=nsc-localstack
-          IMAGE_ID=localstack ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
+          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
           VERSION=v0.0.1
 
           nsc build . --push $IMAGE_ID --tag $VERSION
