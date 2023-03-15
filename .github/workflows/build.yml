@@ -13,9 +13,6 @@ jobs:
       - name: Docker build
         run: |
           DOCKER_BUILDKIT=1 docker build . --tag ns-localstack:v0.0.1
-      - name: List Docker images
-        run: |
-          docker images
 
   build_with_nscloud_to_docker:
     runs-on: ubuntu-latest
@@ -27,7 +24,4 @@ jobs:
         uses: namespacelabs/nscloud-setup@v0.0.1
       - name: Build in Namespace Cloud cluster
         run: |
-          nsc build . --push_to_docker ns-localstack --tag v0.0.1,dev
-      - name: List Docker images
-        run: |
-          docker images
+          nsc build . --push_to_nsc_repo test-repo/ns-localstack --tag v0.0.1,dev
